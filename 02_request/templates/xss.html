@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        <textarea name="text"></textarea>
+        <input type="submit" value="提交">
+
+    </form>
+    {{ text | safe}}
+<!--<script>alert("hook attack")</script>-->
+<!--默认不执行脚本，执行xss攻击，开启safe即执行-->
+</body>
+</html>

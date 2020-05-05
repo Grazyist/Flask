@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>闪现信息</h1>
+    {% for msg in get_flashed_messages() %}
+        <p>{{msg}}</p>
+    {% endfor %}
+
+    {% macro input() %}
+    <input type="text" value="" size="32">
+    {% endmacro %}
+
+    <h1>input 1</h1>
+    {{ input() }}
+
+    <h1>input 2</h1>
+    {{ input() }}
+<hr/>
+    <!--可传参的-->
+    {% macro input2(type, value, size) %}
+    <input type="{{text}}" value="{{value}}" size="{{size}}">
+    {% endmacro %}
+
+   <h1>input2</h1>
+    {{ input2("password", "", 50) }}
+
+<hr/>
+   <!--带默认可传参的-->
+    {% macro input3(type="text", value="", size=30) %}
+        <input type="{{text}}" value="{{value}}" size="{{size}}">
+        {% endmacro %}
+
+    <h1>input3</h1>
+    {{ input3() }}
+
+    <h1>input3</h1>
+    {{ input3("passsword", "", 100) }}
+
+    <hr/>
+<!--调用外部宏-->
+    <h1>input4</h1>
+{% import "macro_input.html" as m_input %}
+{{ m_input.input4("passsword", "", 100) }}
+
+</body>
+</html>

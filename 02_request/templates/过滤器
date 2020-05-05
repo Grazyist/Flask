@@ -1,0 +1,15 @@
+自定义过滤器
+
+方式一：
+    通过add_template_filter(过滤器函数，模板中使用过滤器的名字)
+        def filter_double_sort(ls):
+            return ls[::2]
+        app.add_template_filter(filter_double_sort,'double_2')
+方式二：
+    通过装饰器app.template_filter(模板中使用的装饰器名字)
+        @app.template_filter('db3')
+        def filter_double_sort(ls):
+
+表单
+表单校验
+不使用Flask-WTF扩展抽象出来一个表单类，只要填写了表单，他就是这个类的一个对象
